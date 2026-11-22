@@ -1,0 +1,41 @@
+name: Performance Regression
+description: Reporte de regresión de rendimiento en núcleo o Wasm
+title: "[PERF] "
+labels: ["type:performance", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: "Incluya benchmark, hardware, commit base y commit actual."
+  - type: textarea
+    id: benchmark
+    attributes:
+      label: Benchmark ejecutado
+      placeholder: cargo bench -p visu-core -- <nombre>
+    validations:
+      required: true
+  - type: input
+    id: base_commit
+    attributes:
+      label: Commit base (bueno)
+    validations:
+      required: true
+  - type: input
+    id: head_commit
+    attributes:
+      label: Commit actual (regresión)
+    validations:
+      required: true
+  - type: textarea
+    id: metrics
+    attributes:
+      label: Métricas comparadas
+      placeholder: media, p95, p99, throughput, tamaño Wasm
+    validations:
+      required: true
+  - type: input
+    id: hardware
+    attributes:
+      label: Hardware
+      placeholder: CPU, RAM, OS
+    validations:
+      required: true

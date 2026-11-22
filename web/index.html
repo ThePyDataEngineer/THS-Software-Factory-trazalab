@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visu — Ordenamiento Burbuja Determinista</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Visu</h1>
+    <p>Motor de ordenamiento burbuja determinista en WebAssembly</p>
+  </header>
+  <main>
+    <section class="editor-section">
+      <label for="input-array">Array de entrada (enteros separados por comas):</label>
+      <textarea id="input-array" rows="3" placeholder="5, 2, 9, 1, 7, 3"></textarea>
+      <div class="controls">
+        <button id="btn-validate" disabled>Validar</button>
+        <button id="btn-sort" disabled>Ordenar</button>
+        <button id="btn-reset" disabled>Reset</button>
+      </div>
+      <pre id="validation-output" class="output" aria-live="polite"></pre>
+    </section>
+
+    <section class="trace-section">
+      <h2>Traza de ejecución</h2>
+      <div class="trace-controls">
+        <button id="btn-first" disabled title="Primer paso (estado inicial)">⏮</button>
+        <button id="btn-first-swap" disabled title="Primer intercambio">⏭</button>
+        <button id="btn-prev" disabled title="Paso anterior">◀</button>
+        <button id="btn-next" disabled title="Paso siguiente">▶</button>
+        <button id="btn-last" disabled title="Último paso (estado final)">⏭</button>
+        <span class="step-info">Paso <span id="current-step">0</span> / <span id="total-steps">0</span></span>
+      </div>
+      <pre id="trace-output" class="output" aria-live="polite"></pre>
+      <div class="visualization" id="visualization"></div>
+    </section>
+
+    <section class="console-section">
+      <h3>Consola Wasm</h3>
+      <pre id="wasm-console" class="output"></pre>
+    </section>
+  </main>
+  <script type="module" src="index.js"></script>
+</body>
+</html>

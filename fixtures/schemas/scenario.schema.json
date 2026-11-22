@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://visu.ths/scenario.schema.json",
+  "title": "Visu Sorting Scenario",
+  "type": "object",
+  "required": ["scenario_id", "input", "expected_trace"],
+  "properties": {
+    "scenario_id": { "type": "string", "pattern": "^VISU-T\d+$" },
+    "description": { "type": "string" },
+    "input": {
+      "type": "array",
+      "items": { "type": "integer" },
+      "minItems": 1,
+      "maxItems": 100
+    },
+    "expected_trace": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["step", "array", "swap"],
+        "properties": {
+          "step": { "type": "integer", "minimum": 0 },
+          "array": { "type": "array", "items": { "type": "integer" } },
+          "swap": {
+            "type": ["object", "null"],
+            "properties": {
+              "index": { "type": "integer", "minimum": 0 },
+              "a": { "type": "integer" },
+              "b": { "type": "integer" }
+            },
+            "required": ["index", "a", "b"]
+          }
+        }
+      }
+    },
+    "navigation_checkpoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["label", "step", "array"],
+        "properties": {
+          "label": { "type": "string" },
+          "step": { "type": "integer" },
+          "array": { "type": "array", "items": { "type": "integer" } }
+        }
+      }
+    },
+    "error_cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["invalid_input", "expected_error", "recovery_input", "recovery_output"],
+        "properties": {
+          "invalid_input": { "type": "array", "items": {} },
+          "expected_error": { "type": "string", "enum": ["non_integer", "empty", "overflow", "too_long"] },
+          "recovery_input": { "type": "array", "items": { "type": "integer" } },
+          "recovery_output": { "type": "array", "items": { "type": "integer" } }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

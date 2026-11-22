@@ -1,0 +1,21 @@
+{
+  "scenario_id": "VISU-T02",
+  "description": "Ordenamiento burbuja de 6 enteros con traza completa de intercambios",
+  "input": [5, 2, 9, 1, 7, 3],
+  "expected_trace": [
+    { "step": 0, "array": [5, 2, 9, 1, 7, 3], "swap": null },
+    { "step": 1, "array": [2, 5, 9, 1, 7, 3], "swap": { "index": 0, "a": 5, "b": 2 } },
+    { "step": 2, "array": [2, 5, 1, 9, 7, 3], "swap": { "index": 2, "a": 9, "b": 1 } },
+    { "step": 3, "array": [2, 5, 1, 7, 9, 3], "swap": { "index": 3, "a": 9, "b": 7 } },
+    { "step": 4, "array": [2, 5, 1, 7, 3, 9], "swap": { "index": 4, "a": 9, "b": 3 } },
+    { "step": 5, "array": [2, 5, 1, 7, 3, 9], "swap": null },
+    { "step": 6, "array": [2, 1, 5, 7, 3, 9], "swap": { "index": 1, "a": 5, "b": 1 } },
+    { "step": 7, "array": [2, 1, 5, 3, 7, 9], "swap": { "index": 3, "a": 7, "b": 3 } },
+    { "step": 8, "array": [2, 1, 5, 3, 7, 9], "swap": null },
+    { "step": 9, "array": [1, 2, 5, 3, 7, 9], "swap": { "index": 0, "a": 2, "b": 1 } },
+    { "step": 10, "array": [1, 2, 3, 5, 7, 9], "swap": { "index": 2, "a": 5, "b": 3 } },
+    { "step": 11, "array": [1, 2, 3, 5, 7, 9], "swap": null },
+    { "step": 12, "array": [1, 2, 3, 5, 7, 9], "swap": null }
+  ],
+  "error_cases": []
+}

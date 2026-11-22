@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-11-22T00:00:00Z",
+  "commit": "local-dev",
+  "browser": "Microsoft Edge 158.0.4370.33",
+  "url": "http://127.0.0.1:8080",
+  "wasm_hash": "b5a89e0818c22c3f7cd7fc8ee6696afa705329b548b33079752736e8535c53da",
+  "tests": {
+    "T01": { "name": "Carga módulo Wasm", "status": "PENDING_MANUAL" },
+    "T02": { "name": "Ordenamiento [5,2,9,1,7,3] → [1,2,3,5,7,9]", "status": "PENDING_MANUAL" },
+    "T03": { "name": "Navegación final → primer intercambio → final", "status": "PENDING_MANUAL" },
+    "T04": { "name": "Validación no entero + recuperación", "status": "PENDING_MANUAL" }
+  }
+}

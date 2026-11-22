@@ -1,0 +1,21 @@
+{
+  "scenario_id": "VISU-T04",
+  "description": "Validación: entrada con duplicados y valor no entero → diagnóstico → corrección → ordenamiento",
+  "input": [3, 1, 3, 2],
+  "expected_trace": [
+    { "step": 0, "array": [3, 1, 3, 2], "swap": null },
+    { "step": 1, "array": [1, 3, 3, 2], "swap": { "index": 0, "a": 3, "b": 1 } },
+    { "step": 2, "array": [1, 3, 3, 2], "swap": null },
+    { "step": 3, "array": [1, 3, 2, 3], "swap": { "index": 2, "a": 3, "b": 2 } },
+    { "step": 4, "array": [1, 2, 3, 3], "swap": { "index": 1, "a": 3, "b": 2 } },
+    { "step": 5, "array": [1, 2, 3, 3], "swap": null }
+  ],
+  "error_cases": [
+    {
+      "invalid_input": [3, 1, "x", 2],
+      "expected_error": "non_integer",
+      "recovery_input": [3, 1, 3, 2],
+      "recovery_output": [1, 2, 3, 3]
+    }
+  ]
+}

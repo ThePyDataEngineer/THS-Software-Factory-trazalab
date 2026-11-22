@@ -1,0 +1,36 @@
+# Normalización de texto
+* text=auto eol=lf
+
+# Lenguajes para linguist
+*.rs linguist-language=Rust
+*.toml linguist-language=TOML
+*.md linguist-language=Markdown
+*.html linguist-language=HTML
+*.css linguist-language=CSS
+*.js linguist-language=JavaScript
+*.json linguist-language=JSON
+*.yaml linguist-language=YAML
+*.yml linguist-language=YAML
+*.ps1 linguist-language=PowerShell
+*.sh linguist-language=Shell
+*.py linguist-language=Python
+
+# Vendored (no contar en estadísticas de lenguaje)
+web/pkg/** linguist-vendored
+fixtures/** linguist-vendored
+evidence/** linguist-vendored
+target/** linguist-vendored
+**/target/** linguist-vendored
+
+# Archivos binarios
+*.wasm binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.svg binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.ico binary

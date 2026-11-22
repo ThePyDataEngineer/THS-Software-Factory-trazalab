@@ -1,0 +1,62 @@
+# ===== Rust / Cargo =====
+target/
+**/target/
+# Cargo.lock se VERSIONA en raíz workspace (ver política)
+# No usar Cargo.lock*
+
+# ===== Wasm / Web generados =====
+web/pkg/
+*.wasm
+.wasm-pack/
+
+# ===== IDE / Editor =====
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.rust-analyzer/
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+
+# ===== Secretos / Entorno =====
+.env
+.env.*
+.env.local
+*.pem
+*.key
+*.crt
+secrets/
+credentials/
+
+# ===== FÁBRICA THS — EXCLUIDO DEL PRODUCTO (DEC-008) =====
+agents/
+THS-AGENTES-PILOTO-PAQUETE-v1.0/
+THS-AGENTES-PILOTO-PAQUETE-COMPLETO-v1.0.md
+THS-Analisis-Plantilla-Skills-Ultra-v1.0.md
+THS-Mega-Plantilla-Canonica-de-Agentes-Ultra.md
+THS-Mega-Plantilla-Canonica-de-Skills-Ultra.md
+.hermes/
+.hermes_agent/
+
+# ===== Logs / Diagnósticos crudos (NO versionar) =====
+*.log
+logs/
+*.tmp
+*.temp
+coverage/
+*.profraw
+
+# ===== Evidencia: solo hashes y resúmenes sanitizados =====
+# evidence/builds/*.log
+# evidence/test-runs/*.json
+# evidence/benchmarks/*.raw
+# evidence/wasm-artifacts/*.wasm
+
+# ===== Artefactos de build locales =====
+*.dll
+*.dylib
+*.so
+*.exe

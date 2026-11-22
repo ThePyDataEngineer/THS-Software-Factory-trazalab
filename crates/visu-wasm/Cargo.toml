@@ -1,0 +1,35 @@
+[package]
+name = "visu-wasm"
+version = { workspace = true }
+edition = { workspace = true }
+license = { workspace = true }
+authors = { workspace = true }
+repository = { workspace = true }
+description = "Enlace WebAssembly para visu-core: glue JS, runtime navegador"
+categories = { workspace = true }
+keywords = { workspace = true }
+readme = "../../README.md"
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false
+
+[lib]
+name = "visu_wasm"
+crate-type = ["cdylib"]
+path = "src/lib.rs"
+
+[dependencies]
+visu-core = { path = "../visu-core", features = [] }
+wasm-bindgen = { workspace = true }
+web-sys = { workspace = true }
+js-sys = { workspace = true }
+console_error_panic_hook = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true }
+serde-wasm-bindgen = "0.6.5"
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3.39"
+
+[profile.wasm-release]
+inherits = "workspace.wasm-release"

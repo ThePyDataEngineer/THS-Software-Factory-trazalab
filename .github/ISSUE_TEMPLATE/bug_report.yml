@@ -1,0 +1,60 @@
+name: Bug Report
+description: Reporte de defecto en visu-core, visu-wasm o web
+title: "[BUG] "
+labels: ["type:bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: "Complete toda la información posible. No incluya secretos."
+  - type: dropdown
+    id: crate
+    attributes:
+      label: Componente afectado
+      options:
+        - visu-core
+        - visu-wasm
+        - web
+        - fixtures
+        - docs
+        - ci
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Descripción
+      placeholder: Qué ocurre vs qué se espera
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Pasos de reproducción
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Versión / Commit
+      placeholder: git rev-parse HEAD o tag
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Entorno
+      placeholder: OS, navegador (si Wasm), toolchain
+    validations:
+      required: false
+  - type: checkboxes
+    id: evidence
+    attributes:
+      label: Evidencia
+      options:
+        - label: Incluyo logs/errores sanitizados (sin secretos)
+        - label: Incluyo fixture mínimo que reproduce
+        - label: He verificado en main actual

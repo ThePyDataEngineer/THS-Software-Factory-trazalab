@@ -1,0 +1,57 @@
+---
+id: REPRO-BUILD
+title: "Guía Reproducción — Build"
+version: "0.1.0"
+status: "VIGENTE"
+---
+
+# Reproducción Completa — Build
+
+## Toolchain Requerida
+
+```powershell
+rustup toolchain install 1.98.1
+rustup default 1.98.1
+rustup target add wasm32-unknown-unknown --toolchain 1.98.1
+cargo install wasm-pack@0.15.1 --locked
+```
+
+## Verificación Entorno
+
+```powershell
+rustc --version        # rustc 1.98.1
+cargo --version        # cargo 1.98.1
+rustup target list --installed | Select-String wasm32
+wasm-pack --version    # wasm-pack 0.15.1
+```
+
+## Build Núcleo (visu-core)
+
+```powershell
+cd I:\THS Software Factory - Visu
+cargo build -p visu-core --release
+cargo test -p visu-core --all-targets
+```
+
+## Build Wasm (visu-wasm) — wasm-pack (DEC-006)
+
+```powershell
+cd I:\THS Software Factory - Visu\crates\visu-wasm
+wasm-pack build --release --target web --out-dir ../../web/pkg
+```
+
+## Verificación Artefacto
+
+```powershell
+ls -la I:\THS Software Factory - Visu\web\pkg\
+# Debe contener: visu_wasm_bg.wasm, visu_wasm.js, visu_wasm.d.ts, package.json
+Get-FileHash I:\THS Software Factory - Visu\web\pkg\visu_wasm_bg.wasm -Algorithm SHA256
+# Registrar hash en evidence/wasm-artifacts/
+```
+
+## Limpieza
+
+```powershell
+cargo clean
+Remove-Item -Recurse -Force I:\THS Software Factory - Visu\web\pkg -ErrorAction SilentlyContinue
+```

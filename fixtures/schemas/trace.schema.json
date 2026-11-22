@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://visu.ths/trace.schema.json",
+  "title": "Visu Trace Output",
+  "type": "object",
+  "required": ["scenario_id", "input", "output", "trace"],
+  "properties": {
+    "scenario_id": { "type": "string", "pattern": "^VISU-T\d+$" },
+    "input": { "type": "array", "items": { "type": "integer" } },
+    "output": { "type": "array", "items": { "type": "integer" } },
+    "trace": {
+      "type": "object",
+      "required": ["steps", "comparisons", "swaps"],
+      "properties": {
+        "steps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["step", "array", "swap"],
+            "properties": {
+              "step": { "type": "integer", "minimum": 0 },
+              "array": { "type": "array", "items": { "type": "integer" } },
+              "swap": {
+                "type": ["object", "null"],
+                "properties": {
+                  "index": { "type": "integer", "minimum": 0 },
+                  "a": { "type": "integer" },
+                  "b": { "type": "integer" }
+                },
+                "required": ["index", "a", "b"]
+              }
+            }
+          }
+        },
+        "comparisons": { "type": "integer", "minimum": 0 },
+        "swaps": { "type": "integer", "minimum": 0 }
+      }
+    }
+  },
+  "additionalProperties": false
+}
