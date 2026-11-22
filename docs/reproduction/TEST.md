@@ -7,15 +7,15 @@ status: "VIGENTE"
 
 # Reproducción — Test
 
-## Test Núcleo (visu-core)
+## Test Núcleo (trazalab-core)
 
 ```powershell
-cd I:\THS Software Factory - Visu
-cargo test -p visu-core --all-targets --locked
+cd I:\THS Software Factory - TrazaLab
+cargo test -p trazalab-core --all-targets --locked
 # Esperado: validation_tests, sorting_tests, trace_tests → PASS
 ```
 
-## Test Wasm (visu-wasm) — Diferido a WEB-01
+## Test Wasm (trazalab-wasm) — Diferido a WEB-01
 
 ```powershell
 # wasm-pack test --headless --firefox --chrome
@@ -25,11 +25,11 @@ cargo test -p visu-core --all-targets --locked
 ## Validación Fixtures
 
 ```powershell
-cd I:\THS Software Factory - Visu
+cd I:\THS Software Factory - TrazaLab
 # Validar que fixtures cumplen schema (script diferido)
 ```
 
-## Criterios VISU-T01 a T04 (Ejecución Manual en Edge)
+## Criterios TRAZA-T01 a T04 (Ejecución Manual en Edge)
 
 | Test | Acción | Éxito |
 |:---|:---|:---|

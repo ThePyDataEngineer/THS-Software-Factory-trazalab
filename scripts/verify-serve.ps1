@@ -15,7 +15,7 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
 $BaseUrl = "http://$Address:$Port"
-$Root = "I:\THS Software Factory - Visu"
+$Root = "I:\THS Software Factory - TrazaLab"
 $PkgDir = "$Root/web/pkg"
 
 Write-Host "=== Verificando servicio en $BaseUrl ===" -ForegroundColor Cyan
@@ -45,12 +45,12 @@ $r1 = Test-Endpoint "$BaseUrl/index.html" 'text/html'
 # 2. JS bootstrap
 $r2 = Test-Endpoint "$BaseUrl/index.js" 'application/javascript'
 # 3. Wasm
-$r3 = Test-Endpoint "$BaseUrl/pkg/visu_wasm_bg.wasm" 'application/wasm'
+$r3 = Test-Endpoint "$BaseUrl/pkg/trazalab_wasm_bg.wasm" 'application/wasm'
 if (-not $r3.Pass) {
-    $r3 = Test-Endpoint "$BaseUrl/pkg/visu_wasm.wasm" 'application/wasm'
+    $r3 = Test-Endpoint "$BaseUrl/pkg/trazalab_wasm.wasm" 'application/wasm'
 }
 # 4. Glue JS
-$r4 = Test-Endpoint "$BaseUrl/pkg/visu_wasm.js" 'application/javascript'
+$r4 = Test-Endpoint "$BaseUrl/pkg/trazalab_wasm.js" 'application/javascript'
 
 $r1, $r2, $r3, $r4 | Format-Table Url, Status, ContentType, Pass
 

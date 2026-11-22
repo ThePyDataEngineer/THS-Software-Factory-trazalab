@@ -1,9 +1,9 @@
-//! visu-wasm: Enlace WebAssembly para visu-core.
+//! trazalab-wasm: Enlace WebAssembly para trazalab-core.
 //!
 //! Expone la funcionalidad de validación, ordenamiento y traza a JavaScript
 //! mediante wasm-bindgen.
 
-use visu_core::{bubble_sort, validate_input, SortResult, Trace, ValidatedInput, ValidationError};
+use trazalab_core::{bubble_sort, validate_input, SortResult, Trace, ValidatedInput, ValidationError};
 use wasm_bindgen::prelude::*;
 use serde_wasm_bindgen::{to_value, from_value};
 use serde::{Serialize, Deserialize};

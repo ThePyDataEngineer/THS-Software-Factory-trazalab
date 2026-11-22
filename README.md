@@ -1,11 +1,11 @@
-# Visu
+# TrazaLab
 
-[![CI](https://github.com/ThePyDataEngineer/THS-Software-Factory---Visu/actions/workflows/ci.yml/badge.svg)](https://github.com/ThePyDataEngineer/THS-Software-Factory---Visu/actions/workflows/ci.yml)
+[![CI](https://github.com/ThePyDataEngineer/trazalab/actions/workflows/ci.yml/badge.svg)](https://github.com/ThePyDataEngineer/trazalab/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue.svg)](LICENSE)
 [![Rust Version](https://img.shields.io/badge/rust-1.98.1-orange.svg)](https://blog.rust-lang.org/2026/09/01/Rust-1.98.1.html)
 [![Wasm Target](https://img.shields.io/badge/target-wasm32--unknown--unknown-lightgrey.svg)](https://rustwasm.github.io/)
 
-> **Visu** — Motor de ordenamiento burbuja determinista en Rust, compilable a WebAssembly para ejecución en navegador (Edge 158+).
+> **TrazaLab** — TrazaLab es un visualizador web de algoritmos y estructuras de datos con motor Rust/WebAssembly. Es un proyecto propio inspirado en Visu, de iIonel, y no es una versión oficial ni está afiliado al original.
 
 ## Alcance v0.1 (Incremento 1)
 
@@ -18,32 +18,32 @@
 ## Estructura
 
 ```
-visu/
+trazalab/
 ├── crates/
-│   ├── visu-core/     # Núcleo: validación, ordenamiento, traza (Rust puro)
-│   └── visu-wasm/     # Adaptador Wasm: glue JS, runtime navegador
-├── web/               # Host estático: editor, visualización, controles
-├── fixtures/          # Escenarios VISU-T02, T03, T04 + schemas
-├── docs/              # Contrato, ADRs, guías reproducción
-├── evidence/          # Política + resúmenes sanitizados
-├── scripts/           # ci-local.ps1 (réplica PowerShell de CI)
-└── .github/           # CI, plantillas, gobernanza
+│   ├── trazalab-core/     # Núcleo: validación, ejecución, traza común (Rust puro)
+│   └── trazalab-wasm/     # Adaptador Wasm: glue JS, runtime navegador
+├── web/                   # Host estático: editor, visualización, controles
+├── fixtures/              # Escenarios TRAZA-T02, T03, T04 + schemas
+├── docs/                  # Contrato, ADRs, guías reproducción
+├── evidence/              # Política + resúmenes sanitizados
+├── scripts/               # ci-local.ps1 (réplica PowerShell de CI)
+└── .github/               # CI, plantillas, gobernanza
 ```
 
 ## Reproducción Rápida
 
 ```powershell
 # Prerrequisitos: Rust 1.98.1, wasm32-unknown-unknown, wasm-pack 0.15.1, miniserve 0.25.0
-cd I:\THS Software Factory - Visu
+cd I:\THS Software Factory - TrazaLab
 cargo fmt --all -- --check
-cargo clippy -p visu-core --all-targets --locked
-cargo test -p visu-core --locked
-cargo build -p visu-wasm --target wasm32-unknown-unknown --locked
-cd crates/visu-wasm
+cargo clippy -p trazalab-core --all-targets --locked
+cargo test -p trazalab-core --locked
+cargo build -p trazalab-wasm --target wasm32-unknown-unknown --locked
+cd crates/trazalab-wasm
 wasm-pack build --release --target web --out-dir ../../web/pkg
 cd ..\..\web
 miniserve --port 8080 --address 127.0.0.1 .
-# Abrir http://127.0.0.1:8080 en Edge → ejecutar VISU-T01 a T04
+# Abrir http://127.0.0.1:8080 en Edge → ejecutar TRAZA-T01 a T04
 ```
 
 Ver [docs/reproduction/BUILD.md](docs/reproduction/BUILD.md), [TEST.md](docs/reproduction/TEST.md), [SERVE.md](docs/reproduction/SERVE.md).
@@ -59,4 +59,5 @@ Ver [docs/reproduction/BUILD.md](docs/reproduction/BUILD.md), [TEST.md](docs/rep
 ## Estado
 
 **v0.1.0** — Código de producto implementado, repositorio inicializado, CI configurada.
+**Identidad**: TrazaLab — proyecto propio inspirado en Visu, de iIonel; no versión oficial.
 Decisiones DEC-001 a DEC-008 resueltas (ver matriz en docs).

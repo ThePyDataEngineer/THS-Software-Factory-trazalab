@@ -1,16 +1,16 @@
 [workspace]
 resolver = "2"
-members = ["crates/visu-core", "crates/visu-wasm"]
+members = ["crates/trazalab-core", "crates/trazalab-wasm"]
 
 [workspace.package]
 version = "0.1.0"
 edition = "2021"
 license = "MIT OR Apache-2.0"
 authors = ["ThePyDataEngineer <julian@thehumansoftware.com>"]
-repository = "https://github.com/ThePyDataEngineer/THS-Software-Factory---Visu.git"
-description = "Visu: Motor de ordenamiento burbuja determinista en Rust/WebAssembly con traza navegable"
-categories = ["simulation", "wasm", "webassembly", "algorithm"]
-keywords = ["sorting", "deterministic", "webassembly", "rust", "bubble-sort"]
+repository = "https://github.com/ThePyDataEngineer/trazalab.git"
+description = "TrazaLab: Visualizador web de algoritmos y estructuras de datos con motor Rust/WebAssembly y navegación por traza común. Proyecto propio inspirado en Visu, de iIonel."
+categories = ["visualization", "wasm", "webassembly", "algorithm", "data-structures"]
+keywords = ["visualization", "algorithm", "data-structures", "webassembly", "rust", "trace"]
 readme = "README.md"
 
 [workspace.dependencies]

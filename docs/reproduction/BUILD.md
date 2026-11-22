@@ -25,27 +25,27 @@ rustup target list --installed | Select-String wasm32
 wasm-pack --version    # wasm-pack 0.15.1
 ```
 
-## Build Núcleo (visu-core)
+## Build Núcleo (trazalab-core)
 
 ```powershell
-cd I:\THS Software Factory - Visu
-cargo build -p visu-core --release
-cargo test -p visu-core --all-targets
+cd I:\THS Software Factory - TrazaLab
+cargo build -p trazalab-core --release
+cargo test -p trazalab-core --all-targets
 ```
 
-## Build Wasm (visu-wasm) — wasm-pack (DEC-006)
+## Build Wasm (trazalab-wasm) — wasm-pack (DEC-006)
 
 ```powershell
-cd I:\THS Software Factory - Visu\crates\visu-wasm
+cd I:\THS Software Factory - TrazaLab\crates\trazalab-wasm
 wasm-pack build --release --target web --out-dir ../../web/pkg
 ```
 
 ## Verificación Artefacto
 
 ```powershell
-ls -la I:\THS Software Factory - Visu\web\pkg\
-# Debe contener: visu_wasm_bg.wasm, visu_wasm.js, visu_wasm.d.ts, package.json
-Get-FileHash I:\THS Software Factory - Visu\web\pkg\visu_wasm_bg.wasm -Algorithm SHA256
+ls -la I:\THS Software Factory - TrazaLab\web\pkg\
+# Debe contener: trazalab_wasm_bg.wasm, trazalab_wasm.js, trazalab_wasm.d.ts, package.json
+Get-FileHash I:\THS Software Factory - TrazaLab\web\pkg\trazalab_wasm_bg.wasm -Algorithm SHA256
 # Registrar hash en evidence/wasm-artifacts/
 ```
 
@@ -53,5 +53,5 @@ Get-FileHash I:\THS Software Factory - Visu\web\pkg\visu_wasm_bg.wasm -Algorithm
 
 ```powershell
 cargo clean
-Remove-Item -Recurse -Force I:\THS Software Factory - Visu\web\pkg -ErrorAction SilentlyContinue
+Remove-Item -Recurse -Force I:\THS Software Factory - TrazaLab\web\pkg -ErrorAction SilentlyContinue
 ```

@@ -1,4 +1,4 @@
-import init, { validate, sort, trace_get_step } from "./pkg/visu_wasm.js";
+import init, { validate, sort, trace_get_step } from "./pkg/trazalab_wasm.js";
 
 const inputEl = document.getElementById("input-array");
 const validateBtn = document.getElementById("btn-validate");
@@ -79,7 +79,7 @@ function updateStepDisplay() {
 
 async function initWasm() {
   try {
-    await init("./pkg/visu_wasm_bg.wasm");
+    await init("./pkg/trazalab_wasm_bg.wasm");
     wasmModule = { validate, sort, trace_get_step };
     logWasm("Módulo Wasm inicializado correctamente");
     inputEl.value = "5, 2, 9, 1, 7, 3";
@@ -110,7 +110,7 @@ validateBtn.addEventListener("click", () => {
   if (!wasmModule) return;
   const values = inputToJsonValues();
   const result = wasmModule.validate(values);
-  const data = JSON.parse(JSON.stringify(result));
+  const data = result;
   setValidationOutput(data, !data.valid);
   
   if (data.valid) {
@@ -127,7 +127,7 @@ sortBtn.addEventListener("click", () => {
   const values = inputToJsonValues();
   logWasm(`Ejecutando ordenamiento...`);
   const result = wasmModule.sort(values);
-  const data = JSON.parse(JSON.stringify(result));
+  const data = result;
   
   if (data.trace && data.trace.steps.length > 0) {
     currentTrace = data.trace;

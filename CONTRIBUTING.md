@@ -1,6 +1,6 @@
 ---
 id: CONTRIBUTING
-title: "Guía de Contribución — Visu"
+title: "Guía de Contribución — TrazaLab"
 version: "0.1.0"
 status: "VIGENTE"
 ---
@@ -37,9 +37,9 @@ Ejemplo: `feat(core): add adaptive early-exit to bubble sort`
 ## Requisitos de Calidad
 
 - `cargo fmt --all -- --check` ✅
-- `cargo clippy -p visu-core --all-targets --locked -- -D warnings` ✅
-- `cargo test -p visu-core --locked` ✅
-- `cargo build -p visu-wasm --target wasm32-unknown-unknown --locked` ✅
+- `cargo clippy -p trazalab-core --all-targets --locked -- -D warnings` ✅
+- `cargo test -p trazalab-core --locked` ✅
+- `cargo build -p trazalab-wasm --target wasm32-unknown-unknown --locked` ✅
 - Enlace Wasm (wasm-pack) genera `web/pkg/` completo
 - Tests nuevos para funcionalidad nueva
 - Docs actualizadas: README, doc comments, `docs/` si cambia contrato/ADR

@@ -3,17 +3,17 @@
 .SYNOPSIS
     Réplica local de pasos CI para Windows (MSVC toolchain).
 .DESCRIPTION
-    Ejecuta: fmt, clippy (visu-core), test (visu-core), wasm-build (visu-wasm).
+    Ejecuta: fmt, clippy (trazalab-core), test (trazalab-core), wasm-build (trazalab-wasm).
     Alinea con .github/workflows/ci.yml. No ejecuta pruebas en navegador.
 .NOTES
-    WORKSPACE_ROOT: I:\THS Software Factory - Visu
+    WORKSPACE_ROOT: I:\THS Software Factory - TrazaLab
     Requiere: Rust 1.98.1, wasm32-unknown-unknown, wasm-pack 0.15.1.
 #>
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
-$Root = "I:\THS Software Factory - Visu"
+$Root = "I:\THS Software Factory - TrazaLab"
 Write-Host "=== WORKSPACE_ROOT: $Root ===" -ForegroundColor Cyan
 
 function Check-Command($cmd, $versionFlag = '--version') {
@@ -42,18 +42,18 @@ Write-Host "=== [1/4] Format (rustfmt) ==="
 cd $Root
 cargo fmt --all -- --check
 
-# --- 2. Clippy (visu-core) ---
-Write-Host "=== [2/4] Clippy (visu-core) ==="
-cargo clippy -p visu-core --all-targets --locked -- -D warnings
+# --- 2. Clippy (trazalab-core) ---
+Write-Host "=== [2/4] Clippy (trazalab-core) ==="
+cargo clippy -p trazalab-core --all-targets --locked -- -D warnings
 
 # --- 3. Test Core ---
-Write-Host "=== [3/4] Test Core (visu-core) ==="
-cargo test -p visu-core --locked
+Write-Host "=== [3/4] Test Core (trazalab-core) ==="
+cargo test -p trazalab-core --locked
 
 # --- 4. Wasm Build (wasm-pack) ---
-Write-Host "=== [4/4] Wasm Build (visu-wasm) - wasm-pack ==="
+Write-Host "=== [4/4] Wasm Build (trazalab-wasm) - wasm-pack ==="
 if (-not (Check-Command 'wasm-pack')) { throw "wasm-pack no encontrado. Instale: cargo install wasm-pack@0.15.1 --locked" }
-cd "$Root/crates/visu-wasm"
+cd "$Root/crates/trazalab-wasm"
 wasm-pack build --release --target web --out-dir ../../web/pkg
 cd $Root
 

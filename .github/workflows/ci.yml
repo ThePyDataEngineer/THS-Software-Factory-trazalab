@@ -31,7 +31,7 @@ jobs:
         run: cargo fmt --all -- --check
 
   clippy:
-    name: Static Analysis (clippy) - visu-core
+    name: Static Analysis (clippy) - trazalab-core
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -41,10 +41,10 @@ jobs:
           version: ${{ env.RUST_VERSION }}
           components: clippy
       - name: Run clippy (core only)
-        run: cargo clippy -p visu-core --all-targets --locked -- -D warnings
+        run: cargo clippy -p trazalab-core --all-targets --locked -- -D warnings
 
   test-core:
-    name: Test Core (visu-core)
+    name: Test Core (trazalab-core)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -53,10 +53,10 @@ jobs:
         with:
           version: ${{ env.RUST_VERSION }}
       - name: Run native tests
-        run: cargo test -p visu-core --locked
+        run: cargo test -p trazalab-core --locked
 
   wasm-build:
-    name: Wasm Build (visu-wasm)
+    name: Wasm Build (trazalab-wasm)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -71,12 +71,12 @@ jobs:
           version: "0.15.1"
       - name: Build Wasm with wasm-pack
         run: |
-          cd crates/visu-wasm
+          cd crates/trazalab-wasm
           wasm-pack build --release --target web --out-dir ../../web/pkg
       - name: Verify artifacts
         run: |
           ls -la web/pkg/
-          test -f web/pkg/visu_wasm_bg.wasm
+          test -f web/pkg/trazalab_wasm_bg.wasm
           sha256sum web/pkg/*.wasm > wasm-hash.txt
           cat wasm-hash.txt
       - name: Upload Wasm hash (evidence)

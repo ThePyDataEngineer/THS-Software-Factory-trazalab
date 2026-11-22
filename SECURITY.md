@@ -1,6 +1,6 @@
 ---
 id: SECURITY
-title: "Política de Seguridad — Visu"
+title: "Política de Seguridad — TrazaLab"
 version: "0.1.0"
 status: "VIGENTE"
 ---
@@ -35,5 +35,5 @@ Incluya:
 
 ## Alcance
 
-Cubre: `visu-core`, `visu-wasm`, `web/`, `fixtures/`, CI/CD.
+Cubre: `trazalab-core`, `trazalab-wasm`, `web/`, `fixtures/`, CI/CD.
 No cubre: infraestructura GitHub, dependencias upstream (reportar a sus mantenedores).

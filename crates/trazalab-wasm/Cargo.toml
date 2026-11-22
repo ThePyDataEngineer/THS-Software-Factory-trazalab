@@ -1,11 +1,11 @@
 [package]
-name = "visu-wasm"
+name = "trazalab-wasm"
 version = { workspace = true }
 edition = { workspace = true }
 license = { workspace = true }
 authors = { workspace = true }
 repository = { workspace = true }
-description = "Enlace WebAssembly para visu-core: glue JS, runtime navegador"
+description = "Enlace WebAssembly para trazalab-core: glue JS, runtime navegador"
 categories = { workspace = true }
 keywords = { workspace = true }
 readme = "../../README.md"
@@ -14,12 +14,12 @@ readme = "../../README.md"
 wasm-opt = false
 
 [lib]
-name = "visu_wasm"
+name = "trazalab_wasm"
 crate-type = ["cdylib"]
 path = "src/lib.rs"
 
 [dependencies]
-visu-core = { path = "../visu-core", features = [] }
+trazalab-core = { path = "../trazalab-core", features = [] }
 wasm-bindgen = { workspace = true }
 web-sys = { workspace = true }
 js-sys = { workspace = true }
