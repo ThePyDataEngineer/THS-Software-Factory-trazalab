@@ -5,15 +5,20 @@
 [![Rust Version](https://img.shields.io/badge/rust-1.98.1-orange.svg)](https://blog.rust-lang.org/2026/09/01/Rust-1.98.1.html)
 [![Wasm Target](https://img.shields.io/badge/target-wasm32--unknown--unknown-lightgrey.svg)](https://rustwasm.github.io/)
 
-> **TrazaLab** — TrazaLab es un visualizador web de algoritmos y estructuras de datos con motor Rust/WebAssembly. Es un proyecto propio inspirado en Visu, de iIonel, y no es una versión oficial ni está afiliado al original.
+TrazaLab es un visualizador web de algoritmos y estructuras de datos con motor Rust/WebAssembly. Es un proyecto propio inspirado en Visu, de iIonel, y no es una versión oficial ni está afiliado al original.
 
-## Alcance v0.1 (Incremento 1)
+## Qué es TrazaLab
 
-- Arreglo editable de enteros en editor web
-- Ordenamiento burbuja determinista ejecutado en Wasm
-- Traza navegable: paso a paso, saltos a primer intercambio y estado final
-- Validación de entrada: rechazo de no enteros con diagnóstico y recuperación
-- Windows + Edge 158.0.4370.33 (Chrome/Firefox en WEB-01 posterior)
+TrazaLab está pensado para observar paso a paso cómo un algoritmo transforma sus datos. Una traza es el registro ordenado de los pasos de una ejecución. La visualización usa esa traza para seguir los cambios entre pasos, en lugar de mostrar únicamente el resultado final.
+
+## Tecnologías
+
+- **Rust y WebAssembly:** motor del visualizador.
+- **Interfaz web:** presentación y navegación de la traza en el navegador.
+
+## Atribución
+
+TrazaLab está inspirado en **Visu**, de **iIonel**. La mención de Visu identifica el proyecto de referencia y reconoce a su autor. TrazaLab es un proyecto independiente.
 
 ## Estructura
 
@@ -39,7 +44,7 @@ cargo fmt --all -- --check
 cargo clippy -p trazalab-core --all-targets --locked
 cargo test -p trazalab-core --locked
 cargo build -p trazalab-wasm --target wasm32-unknown-unknown --locked
-cd crates/trazalab-wasm
+cd crates\trazalab-wasm
 wasm-pack build --release --target web --out-dir ../../web/pkg
 cd ..\..\web
 miniserve --port 8080 --address 127.0.0.1 .
