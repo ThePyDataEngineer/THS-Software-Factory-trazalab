@@ -1,0 +1,34 @@
+{
+  "package": "TrazaLab-500X-Propuesta",
+  "version": "0.1.0",
+  "status": "PROPOSAL",
+  "date": "2026-11-24",
+  "documents": {
+    "01-Vision-Producto-y-Alcance": 973,
+    "02-Arquitectura-Rust-y-Plataformas": 912,
+    "03-Contrato-de-Trazas-y-Reproduccion": 985,
+    "04-Experiencia-Diagramas-y-SOP-JS": 940,
+    "05-Escala-Rendimiento-y-Benchmarks": 1001,
+    "06-Calidad-Seguridad-y-Distribucion": 1057,
+    "07-Hoja-de-Ruta-Gobernanza-y-Activacion": 1111
+  },
+  "product_tests": "NOT_RUN",
+  "source_commit": "NOT_AUDITED",
+  "trace_example": "SIMULATED",
+  "files_without_checksum_manifest": [
+    "FUENTES.md",
+    "01-Vision-Producto-y-Alcance.md",
+    "02-Arquitectura-Rust-y-Plataformas.md",
+    "03-Contrato-de-Trazas-y-Reproduccion.md",
+    "04-Experiencia-Diagramas-y-SOP-JS.md",
+    "05-Escala-Rendimiento-y-Benchmarks.md",
+    "06-Calidad-Seguridad-y-Distribucion.md",
+    "07-Hoja-de-Ruta-Gobernanza-y-Activacion.md",
+    "anexos/PLAN-DE-PRUEBAS.csv",
+    "anexos/MATRIZ-DE-REQUISITOS.csv",
+    "anexos/fixture-traza-simulada.json",
+    "anexos/estados-esperados.json",
+    "00-LEEME.md",
+    "VERIFICACION-DEL-PAQUETE.md"
+  ]
+}

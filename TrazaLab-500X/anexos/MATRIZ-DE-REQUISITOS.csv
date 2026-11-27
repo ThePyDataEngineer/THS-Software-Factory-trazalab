@@ -1,0 +1,13 @@
+requirement_id,requisito,documentos,verificacion,gate,estado
+TL500-R01,Motor Rust preservado,02,T06,G1,PROPUESTO
+TL500-R02,Revision validada vigente,04,T01;T02,G1,PROPUESTO
+TL500-R03,Replay exacto,03,T03,G2,PROPUESTO
+TL500-R04,Cuotas y terminal,03;05,T04,G2,PROPUESTO
+TL500-R05,Accesibilidad,04;06,T09,G4,PROPUESTO
+TL500-R06,Medicion reproducible,05,T08,G3,PROPUESTO
+TL500-R07,Importacion y privilegios,03;06,T05;T12,G2;G5,PROPUESTO
+TL500-R08,Desktop opcional,02;06,T11,G5,PROPUESTO
+TL500-R09,Exportacion fiel,04,T10,G4,PROPUESTO
+TL500-R10,Equivalencia de productores,03,T07;T13,G2;G6,PROPUESTO
+TL500-R11,Manifiesto y evidencia,06;07,Revision documental de cada gate,G0-G6,PROPUESTO
+TL500-R12,Cambios reversibles y aprobados,07,Revision ADR y autorizaciones,G0-G6,PROPUESTO

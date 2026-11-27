@@ -1,0 +1,53 @@
+{
+  "nota": "Derivados del fixture simulado; no resultados del motor TrazaLab",
+  "states": [
+    {
+      "cursor": 0,
+      "array": [
+        4,
+        1,
+        3
+      ]
+    },
+    {
+      "cursor": 1,
+      "array": [
+        4,
+        1,
+        3
+      ]
+    },
+    {
+      "cursor": 2,
+      "array": [
+        1,
+        4,
+        3
+      ]
+    },
+    {
+      "cursor": 3,
+      "array": [
+        1,
+        4,
+        3
+      ]
+    },
+    {
+      "cursor": 4,
+      "array": [
+        1,
+        3,
+        4
+      ]
+    },
+    {
+      "cursor": 5,
+      "array": [
+        1,
+        3,
+        4
+      ]
+    }
+  ]
+}
