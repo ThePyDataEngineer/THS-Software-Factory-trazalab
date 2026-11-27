@@ -1,0 +1,9 @@
+# G0–G1 · Línea base y rescate del recorrido
+
+G0 produce `inventory` con SHA completo, estado del árbol, remoto redactado, OS/navegador, `rustc -Vv`, `cargo -V`, toolchain, targets, lockfile, raíz de workspace, scripts reales, CI, frontend efectivo y hash del artefacto servido. Inspeccionar antes de compilar: scripts, build.rs y dependencias pueden ejecutar código de construcción. Si requiere nueva descarga o instalación fuera del mandato, registrar y escalar. No sustituir Leptos/Trunk ni asumir que se usa.
+
+Comandos orientativos desde el workspace identificado: `git rev-parse HEAD`, `git status --short`, `cargo metadata --locked --no-deps --format-version 1`, `cargo fmt --all -- --check`, `cargo test --workspace --locked`; ejecutar Clippy según toolchain y targets existentes. Si falta lockfile o componente no lo regeneres ni instales silenciosamente. Confirmar la cadena web a partir de CI/manifiestos; no dar por válido el build web por pasar pruebas nativas. Cargo Book: https://doc.rust-lang.org/cargo/commands/cargo-test.html y https://doc.rust-lang.org/cargo/commands/cargo-clippy.html.
+
+G1 reproduce servidor → inicialización Wasm → entrada → Validar → Ordenar → inspección. Cada frontera tiene evidencia separada: URL/listener, HTTP/artefacto, estado init, revisión validada, run_id y secuencia. Casos: [4,1,3], ordenado, inválido según parser real, editar tras validar, motor no inicializado. Botón habilitado sólo cuando motor listo, entrada vigente validada y no hay otra ejecución. Cerrar con traza o captura del antes/después. Ante error, clasificar infraestructura, build, transporte, estado UI o replay; no deducir causa histórica. No usar fallback que simule éxito.
+
+Salida: reproducible en perfil Windows/Edge efectivo y pruebas de autor repetidas por revisor o independencia declarada pendiente. Bloquea G2 si falla el recorrido. Rollback: volver al artefacto base identificado, sin borrar candidata ni trabajo ajeno.

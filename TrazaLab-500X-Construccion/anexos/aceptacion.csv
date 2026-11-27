@@ -1,0 +1,11 @@
+gate,id,accion,esperado,estado,observado,evidencia
+G0,T00,Identidad y build,SHA y artefacto reproducible,NOT_RUN,,
+G1,T01,"Validar y ordenar [4,1,3]","[1,3,4]; cursor y entrada ligados",NOT_RUN,,
+G1,T02,Editar tras validar / init falla,No ejecutar; diagnóstico correcto,NOT_RUN,,
+G2,T03,Avanzar retroceder saltar,Igualdad para cada cursor,NOT_RUN,,
+G2,T04,Índice fuera de rango / cancelación,Rechazo intacto o prefijo parcial,NOT_RUN,,
+G2,T05,Respuesta vieja,No modifica sesión vigente,NOT_RUN,,
+G3,T06,Bancos A y B,"Medición comparable, exactitud, fallos visibles",NOT_RUN,,
+G4,T07,Teclado y exportación,Hitos fieles y controles preservados,NOT_RUN,,
+G5,T08,Windows limpio y permisos,"Instalación, recuperación y denegación",NOT_RUN,,
+G6,T09,Segundo productor,Equivalencia del modo declarado,NOT_RUN,,

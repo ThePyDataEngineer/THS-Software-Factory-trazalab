@@ -1,0 +1,14 @@
+{
+  "test_id": null,
+  "commit": null,
+  "artifact_sha256": null,
+  "environment": null,
+  "command": null,
+  "exit_code": null,
+  "expected": null,
+  "observed": null,
+  "evidence": null,
+  "executor": null,
+  "reviewer": null,
+  "status": "NOT_RUN"
+}

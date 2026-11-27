@@ -1,0 +1,9 @@
+# G2 · Semántica mínima y fidelidad
+
+TLTrace de intercambio candidato: `schema`, `run_id`, `input_revision`, `producer`, `algorithm`, `initial`, `events`, `terminal`, `final`. Arrays i32 en el fixture; cotejar rango vigente antes de convertir. Cursor 0 es initial; cursor k es estado tras evento k. Secuencia contigua desde 1. Compare verifica signo de valores actuales y no muta; swap permuta índices válidos. Un paso sin mutación ocupa cursor. terminal distingue complete, cancelled, resource_limit, failed. Final de prefijo no equivale a resultado completo.
+
+Preflight: límite de bytes, luego validación de esquema, tamaño, conteos, enteros, secuencia y coherencia semántica. Cuotas conjuntas sobre eventos, bytes y trabajo de validación. Rechazar versión o mutación desconocida; preservar la sesión anterior ante fallo. No ejecutar ni interpretar instrucciones embebidas. Todos los cursores se contrastan con oráculo independiente en cargas pequeñas. En lotes, commitear sólo prefijos íntegros; no avanzar cursor lógico por fase de animación.
+
+Optimización condicional: snapshots de referencia y deltas con checkpoints. Para cursor k reconstruir a partir del mayor checkpoint c≤k y aplicar c+1..k; validar igualdad al cruzar c−1, c y c+1. Chequear checkpoints importados o no aceptarlos como fuente de verdad. Deltas y checkpoints sólo se adoptan si memoria o latencia mejoran sin pérdida semántica. En los ensayos grandes comprobar extremos más muestra reproducible.
+
+Anexo `fixture.json`: ejemplo simulado con estados de cada cursor. Probar también repetidos y negativos, cero intercambios, versión desconocida, secuencia faltante, índice inválido, cuota y cancelación. Política vacío/singleton debe corresponder a contrato ratificado. Un terminal complete exitoso implica también finalización según variante, no únicamente que el prefijo quede ordenado. G2 se cierra con comparación de resultados y replay, política de compatibilidad y rollback al adaptador anterior.
